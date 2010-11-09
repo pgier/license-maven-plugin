@@ -1,0 +1,150 @@
+package org.codehaus.mojo.license.model;
+
+/* 
+ * Codehaus License Maven Plugin
+ *     
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/lgpl-3.0.html>.
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.model.License;
+
+/**
+ * Represents the license information for a given dependency project
+ * 
+ * @author pgier
+ */
+public class DependencyProject
+{
+    private String groupId;
+
+    private String artifactId;
+
+    private String version;
+
+    private List<License> licenses;
+
+    private String licenseResolutionResult;
+
+    public String getLicenseResolutionResult()
+    {
+        return licenseResolutionResult;
+    }
+
+    public void setLicenseResolutionResult( String licenseResolutionResult )
+    {
+        this.licenseResolutionResult = licenseResolutionResult;
+    }
+
+    /**
+     * Default constructor
+     */
+    public DependencyProject()
+    {
+
+    }
+
+    public DependencyProject( String groupId, String artifactId, String version )
+    {
+        this.groupId = groupId;
+        this.artifactId = artifactId;
+        this.version = version;
+    }
+
+    public String getGroupId()
+    {
+        return groupId;
+    }
+
+    public void setGroupId( String groupId )
+    {
+        this.groupId = groupId;
+    }
+
+    public String getArtifactId()
+    {
+        return artifactId;
+    }
+
+    public void setArtifactId( String artifactId )
+    {
+        this.artifactId = artifactId;
+    }
+
+    public String getVersion()
+    {
+        return version;
+    }
+
+    public void setVersion( String version )
+    {
+        this.version = version;
+    }
+
+    public List<License> getLicenses()
+    {
+        return licenses;
+    }
+
+    public void setLicenses( List<License> licenses )
+    {
+        this.licenses = licenses;
+    }
+
+    public void addLicense( License license )
+    {
+        if ( licenses == null )
+        {
+            licenses = new ArrayList<License>();
+        }
+        licenses.add( license );
+    }
+
+    public String toString()
+    {
+        return getId();
+    }
+
+    /**
+     * The unique ID for the project
+     * 
+     * @return String containing "groupId:artifactId"
+     */
+    public String getId()
+    {
+        return groupId + ":" + artifactId;
+    }
+
+    public boolean equals( Object compareTo )
+    {
+        if ( compareTo instanceof Artifact )
+        {
+            Artifact compare = (Artifact) compareTo;
+            if ( groupId.equals( compare.getGroupId() ) && artifactId.equals( compare.getArtifactId() ) )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int hashCode()
+    {
+        return getId().hashCode();
+    }
+
+}
