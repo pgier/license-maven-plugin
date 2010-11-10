@@ -33,9 +33,9 @@
   <description>Maven plugin to download and collect license files from project dependencies.</description>
 
   <scm>
-    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/license-maven-plugin</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/license-maven-plugin</developerConnection>
-    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/license-maven-plugin</url>
+    <connection>scm:git:git@github.com:pgier/license-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:pgier/license-maven-plugin.git</developerConnection>
+    <url>https://github.com/pgier/license-maven-plugin/</url>
   </scm>
 
   <issueManagement>
@@ -46,8 +46,8 @@
   <inceptionYear>2010</inceptionYear>
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>The GNU Lesser General Public License, Version 3.0</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
